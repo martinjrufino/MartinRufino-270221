@@ -1,0 +1,29 @@
+﻿@model MartinJRufino_20210227.Model.Response.CommentResponse
+
+@{
+    ViewData["Title"] = "Comment";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Mensaje</th>
+        </tr>
+        @foreach (var item in Model.commentLst)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.body</td>
+            </tr>
+        }
+    </tbody>
+</table>

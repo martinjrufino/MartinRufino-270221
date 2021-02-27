@@ -1,0 +1,28 @@
+﻿@model MartinJRufino_20210227.Model.Response.AlbumResponse
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Detalle</th>
+        </tr>
+        @foreach (var item in Model.albumLst)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.title</td>
+                <td><input type="button" value="Detalle" onclick="location.href='@Url.Action("GetPhotos", "Photo", new { albumId = item.id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

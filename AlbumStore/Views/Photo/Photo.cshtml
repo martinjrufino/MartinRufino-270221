@@ -1,0 +1,32 @@
+﻿@model MartinJRufino_20210227.Model.Response.PhotoResponse
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Imagen</th>
+            <th>Thumbnail</th>
+            <th>Detalle</th>
+        </tr>
+        @foreach (var item in Model.photoLst)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.title</td>
+                <td><img src="@item.url" /></td>
+                <td><img src="@item.thumbnailUrl" /></td>
+                <td><input type="button" value="Detalle" onclick="location.href='@Url.Action("GetComments", "Comment", new { postId = item.id })'" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
